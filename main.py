@@ -4,7 +4,8 @@ import sys
 import os
 
 def main():
-    student.parseStudents(os.path.join(sys.path[0], "students.txt"))
+    students = student.parseStudents(os.path.join(sys.path[0], "students.txt"))
+    print(students)
 
 
 if __name__ == '__main__':
