@@ -1,6 +1,6 @@
 
 
-class Student:;
+class Student:
     def __init__(self, StLastName, StFirstName, Grade, Classroom, Bus, GPA, TLastName, TFirstName):
         self.StLastName = StLastName
         self.StFirstName = StFirstName
@@ -14,8 +14,9 @@ class Student:;
 
 def parseStudents(filename):
     with open(filename, "r") as studentsFile:
-        for line in studentsFile
-            info = line.strip()
+        for line in studentsFile:
+            info = [line.strip("\n").split(",")]
+            print(info)
 
 
     pass
