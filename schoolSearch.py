@@ -6,7 +6,7 @@ def R4(students, user_in):
     assignment for each student found and the name of their teacher (last and first name). """
     for student in students:
         if user_in == student.StLastName:
-            print(student.StLastName + ", " + student.StFirstName + ", " + student.Grade + ", " + student.Classroom + ", " + student.TLastName + ", " student.StFirstName)
+            print(student.StLastName + ", " + student.StFirstName + ", " + student.Grade + ", "  + student.Classroom + ", " + student.TLastName + ", " +  student.StFirstName)
 
 # S[tudent]: <lastname> B[us]
 def R5(students, user_in):
