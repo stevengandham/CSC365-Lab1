@@ -4,8 +4,11 @@ import sys
 import os
 
 def main():
-    students = student.parseStudents(os.path.join(sys.path[0], "students.txt"))
-    print(students)
+    students = student.parseStudents()
+    schoolSearch.R6(students, "GAMBREL")
+    schoolSearch.R7(students, "2")
+    schoolSearch.R8(students,"52")
+    
 
 
 if __name__ == '__main__':
