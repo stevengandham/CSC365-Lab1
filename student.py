@@ -14,3 +14,6 @@ class Student:;
 
 def parseStudents():
     pass
+
+def test():
+   pass
