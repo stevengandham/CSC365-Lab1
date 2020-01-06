@@ -15,9 +15,7 @@ class Student:;
 def parseStudents(filename):
     with open(filename, "r") as studentsFile:
         for line in studentsFile
+            info = line.strip()
 
 
     pass
-
-def test():
-   pass
