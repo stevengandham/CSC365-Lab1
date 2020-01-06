@@ -12,5 +12,9 @@ class Student:;
         self.TFirstName = TFirstName
 
 
-def parseStudents():
+def parseStudents(filename):
+    with open(filename, "r") as studentsFile:
+        for line in studentsFile
+
+
     pass
