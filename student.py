@@ -23,12 +23,6 @@ def parseStudents(filename):
             Students.append(s)
             print(s)
 
-
-
-
-
-    pass
-
 def test2():
     pass
 
