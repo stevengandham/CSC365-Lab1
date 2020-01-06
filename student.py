@@ -21,3 +21,6 @@ def parseStudents(filename):
 
 def test():
    pass
+
+def haha():
+    pass
