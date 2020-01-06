@@ -1,9 +1,10 @@
 import schoolSearch
 import student
-from sys import *
+import sys
+import os
 
 def main():
-    student.parseStudents(argv[1])
+    student.parseStudents(os.path.join(sys.path[0], "students.txt"))
 
 
 if __name__ == '__main__':
