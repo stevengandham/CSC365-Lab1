@@ -20,12 +20,9 @@ def parseStudents(filename):
 
     pass
 
-<<<<<<< HEAD
 def test2():
-=======
-def test():
-   pass
+    pass
 
-def haha():
->>>>>>> 570dcd40588856b68f550ff35f281987eff9d91a
+
+def haha ():
     pass
