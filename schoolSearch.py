@@ -64,19 +64,18 @@ def R9(students, user_in):
     for student in students:
         if user_in[0] == student.Grade:
             studentList.append(student)
-    print(user_in)
-    if user_in[1] == "H":
+    if user_in[1].strip('ighow') == "H":
         maxGPA = max(student.GPA for student in studentList)
         maxGPAStudent = [student for student in studentList if student.GPA == maxGPA][0]
         print(maxGPAStudent.StLastName + ", " + maxGPAStudent.StFirstName + " GPA: " +
               maxGPAStudent.GPA + " Teacher: " + maxGPAStudent.TLastName + ", " +
-              maxGPAStudent.TFirstName + " Bus: ", maxGPAStudent.Bus)
-    if user_in[1] == "L":
+              maxGPAStudent.TFirstName + " Bus: " + maxGPAStudent.Bus)
+    if user_in[1].strip('ighow') == "L":
         minGPA = min(student.GPA for student in studentList)
         minGPAStudent = [student for student in studentList if student.GPA == minGPA][0]
         print(minGPAStudent.StLastName + ", " + minGPAStudent.StFirstName + " GPA: " +
             minGPAStudent.GPA + " Teacher: " + minGPAStudent.TLastName + ", " +
-            minGPAStudent.TFirstName + " Bus: ", minGPAStudent.Bus)
+            minGPAStudent.TFirstName + " Bus: " +  minGPAStudent.Bus)
 
 
 
