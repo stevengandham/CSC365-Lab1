@@ -1,4 +1,4 @@
-
+from decimal import Decimal
 #  S[tudent]: <lastname>
 def R4(students, user_in):
     """ Search the contents of the students.txt file for the entry (or entries) for students with
@@ -60,17 +60,17 @@ def R9(students, user_in):
         for the given grade with the lowest GPA. Report the contents of this entry (name of the
         student, GPA, teacher, bus route)."""
     user_in = user_in.split();
-    studentList = []
-    for student in students:
-        if user_in[0] == student.Grade:
-            studentList.append(student)
-    if user_in[1].strip('ighow') == "H":
+    studentList = [student for student in students if user_in[0] == student.Grade]
+    # for student in students:
+    #     if user_in[0] == student.Grade:
+    #         studentList.append(student)
+    if user_in[1].strip('igh') == "H":
         maxGPA = max(student.GPA for student in studentList)
         maxGPAStudent = [student for student in studentList if student.GPA == maxGPA][0]
         print(maxGPAStudent.StLastName + ", " + maxGPAStudent.StFirstName + " GPA: " +
               maxGPAStudent.GPA + " Teacher: " + maxGPAStudent.TLastName + ", " +
               maxGPAStudent.TFirstName + " Bus: " + maxGPAStudent.Bus)
-    if user_in[1].strip('ighow') == "L":
+    if user_in[1].strip('ow') == "L":
         minGPA = min(student.GPA for student in studentList)
         minGPAStudent = [student for student in studentList if student.GPA == minGPA][0]
         print(minGPAStudent.StLastName + ", " + minGPAStudent.StFirstName + " GPA: " +
@@ -78,23 +78,39 @@ def R9(students, user_in):
             minGPAStudent.TFirstName + " Bus: " +  minGPAStudent.Bus)
 
 
-
-
 # A[verage]: <Number>
-def R10():
+def R10(students, user_in):
     """ Search the contents of the students.txt file for the entries where the student's grade
         matches the number provided in the instruction.Compute the average GPA score for
         the entries found. Output the grade level (the number provided in command) and the
         average GPA score computed."""
+    studentList = [student for student in students if user_in == student.Grade]
+    # for student in students:
+    #     if user_in == student.Grade:
+    #         studentList.append(student)
+    GPAList = [Decimal(student.GPA) for student in studentList]
+    GPAAvg = sum(GPAList)/len(GPAList);
 
+    print("Grade: " + user_in + " Average GPA: " + str(round(GPAAvg, 2)))
 
 
 # I[nfo]
-def R11():
+def R11(students):
     """ For each grade (from 0 to 6) compute the total number of students in that grade.
         Report the number of students in each grade in the format
 
             <Grade>: <Number of Students>
 
         sorted in ascending order by grade."""
-    pass
+
+    gradeList = [student.Grade for student in students]
+    classCount = []
+    for i in range(0,7):
+        classCount.append(str(gradeList.count(str(i))))
+    print("Grade 0: " + classCount[0] +
+          "\nGrade 1: " + classCount[1] +
+          "\nGrade 2: " + classCount[2] +
+          "\nGrade 3: " + classCount[3] +
+          "\nGrade 4: " + classCount[4] +
+          "\nGrade 5: " + classCount[5] +
+          "\nGrade 6: " + classCount[6])
