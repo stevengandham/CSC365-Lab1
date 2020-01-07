@@ -48,7 +48,7 @@ def R8(students, user_in):
 #G[rade]: <Number> H[igh]
 #                   or
 #G[rade]: <Number> L[ow]
-def R9():
+def R9(students, user_in):
     """ Search the contents of the students.txt file for the entries where the student’s grade
         matches the number provided in the instruction.
 
@@ -59,7 +59,27 @@ def R9():
         If the L[ow] keyword is used in the command, find the entry in the students.txt file
         for the given grade with the lowest GPA. Report the contents of this entry (name of the
         student, GPA, teacher, bus route)."""
-    pass
+
+    user_in = user_in.split();
+    studentList = []
+    for student in students:
+        if user_in[0] == students.Grade:
+            studentList.append(student)
+    if user_in[1] == "H":
+        maxGPA = max(studentList.GPA for student in studentList)
+        maxGPAStudent = [obj for student in studentList if obj.GPA == maxGPA]
+        print(maxGPAStudent.StLastName + ", " + maxGPAStudent.StFirstName + " GPA: " +
+              maxGPAStudent.GPA + " Teacher: " + maxGPAStudent.TLastName + ", " +
+              maxGPAStudent.TFirstName + " Bus: ", maxGPAStudent.Bus)
+    if user_in[1] == "L":
+        minGPA = min(studentList.GPA for student in studentList)
+        minGPAStudent = [obj for student in studentList if obj.GPA == minGPA]
+        print(minGPAStudent.StLastName + ", " + minGPAStudent.StFirstName + " GPA: " +
+            minGPAStudent.GPA + " Teacher: " + minGPAStudent.TLastName + ", " +
+            minGPAStudent.TFirstName + " Bus: ", minGPAStudent.Bus)
+
+
+
 
 # A[verage]: <Number>
 def R10():
@@ -67,7 +87,8 @@ def R10():
         matches the number provided in the instruction.Compute the average GPA score for
         the entries found. Output the grade level (the number provided in command) and the
         average GPA score computed."""
-    pass
+
+    
 
 # I[nfo]
 def R11():
