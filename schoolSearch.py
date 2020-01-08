@@ -15,7 +15,7 @@ def R5(students, user_in):
         route the student takes. """
     for student in students:
         if user_in == student.StLastName:
-            print(student.StLastName + ", " + student.Bus)
+            print(student.StLastName + ", " +student.StFirstName + ", " + student.Bus)
 
 # T[eacher]: <lastname>
 def R6(students, user_in):
