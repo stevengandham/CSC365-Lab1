@@ -61,9 +61,7 @@ def R9(students, user_in):
         student, GPA, teacher, bus route)."""
     user_in = user_in.split();
     studentList = [student for student in students if user_in[0] == student.Grade]
-    # for student in students:
-    #     if user_in[0] == student.Grade:
-    #         studentList.append(student)
+
     if user_in[1].strip('igh') == "H":
         maxGPA = max(student.GPA for student in studentList)
         maxGPAStudent = [student for student in studentList if student.GPA == maxGPA][0]
@@ -85,9 +83,6 @@ def R10(students, user_in):
         the entries found. Output the grade level (the number provided in command) and the
         average GPA score computed."""
     studentList = [student for student in students if user_in == student.Grade]
-    # for student in students:
-    #     if user_in == student.Grade:
-    #         studentList.append(student)
     GPAList = [Decimal(student.GPA) for student in studentList]
     GPAAvg = sum(GPAList)/len(GPAList);
 
