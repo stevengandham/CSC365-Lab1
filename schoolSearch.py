@@ -54,7 +54,7 @@ def main():
             else:
                 print("Invalid number of arguments")
                 print("Usage: A[verage]: <number>")
-        elif len(user_in) == 1 and user_in[0][0] == 'I': 
+        elif len(user_in) == 1 and user_in[0][0] == 'I':
             R11(students)
         elif user_in[0][0] == 'Q':
             not_quit = False
