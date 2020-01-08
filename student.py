@@ -1,3 +1,5 @@
+""" ALLEN ZHAI, WEI LIN, STEVEN GANDHAM """
+
 class Student:
     def __init__(self, StLastName, StFirstName, Grade, Classroom, Bus, GPA, TLastName, TFirstName):
         self.StLastName = StLastName

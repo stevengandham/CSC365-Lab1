@@ -1,3 +1,4 @@
+""" ALLEN ZHAI, WEI LIN, STEVEN GANDHAM """
 import functions
 import student
 import sys

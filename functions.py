@@ -1,4 +1,6 @@
+""" ALLEN ZHAI, WEI LIN, STEVEN GANDHAM """
 from decimal import Decimal
+
 #  S[tudent]: <lastname>
 def R4(students, user_in):
     """ Search the contents of the students.txt file for the entry (or entries) for students with
@@ -6,7 +8,7 @@ def R4(students, user_in):
     assignment for each student found and the name of their teacher (last and first name). """
     for student in students:
         if user_in == student.StLastName:
-            print(student.StLastName + "," + student.StFirstName + "," + student.Grade + 
+            print(student.StLastName + "," + student.StFirstName + "," + student.Grade +
             ","  + student.Classroom + "," + student.TLastName + "," +  student.StFirstName)
 
 # S[tudent]: <lastname> B[us]
@@ -84,7 +86,7 @@ def R10(students, user_in):
         the entries found. Output the grade level (the number provided in command) and the
         average GPA score computed."""
     studentList = [student for student in students if user_in == student.Grade]
-    
+
     GPAList = [Decimal(student.GPA) for student in studentList]
     GPAAvg = sum(GPAList)/len(GPAList);
 
