@@ -6,11 +6,17 @@ import os
 
 def main():
     students = student.parseStudents()
-    print("Loaded Student Information")
-    print("Commands Available:\n    S[tudent]: <lastname> [B[us]]\n" +
-            "    T[eacher]: <lastname>\n    B[us]: <number>\n    G[rade]: <number> [H[igh]|L[ow]]\n " +
-            "   A[verage]: <number>\n    I[nfo]\n    Q[uit]")
-    not_quit = True
+    if students == None:
+        print("Couldn't Load Students")
+        not_quit = False
+    else:
+        print("Loaded Student Information")
+        not_quit = True
+        print("Commands Available:\n    S[tudent]: <lastname> [B[us]]\n" +
+                "    T[eacher]: <lastname>\n    B[us]: <number>\n    G[rade]: <number> [H[igh]|L[ow]]\n " +
+                "   A[verage]: <number>\n    I[nfo]\n    Q[uit]")
+
+
 
     while not_quit:
         user_in = input().split(" ")
