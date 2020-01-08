@@ -6,7 +6,8 @@ def R4(students, user_in):
     assignment for each student found and the name of their teacher (last and first name). """
     for student in students:
         if user_in == student.StLastName:
-            print(student.StLastName + ", " + student.StFirstName + ", " + student.Grade + ", "  + student.Classroom + ", " + student.TLastName + ", " +  student.StFirstName)
+            print(student.StLastName + "," + student.StFirstName + "," + student.Grade + 
+            ","  + student.Classroom + "," + student.TLastName + "," +  student.StFirstName)
 
 # S[tudent]: <lastname> B[us]
 def R5(students, user_in):
@@ -15,7 +16,7 @@ def R5(students, user_in):
         route the student takes. """
     for student in students:
         if user_in == student.StLastName:
-            print(student.StLastName + ", " +student.StFirstName + ", " + student.Bus)
+            print(student.StLastName + "," +student.StFirstName + "," + student.Bus)
 
 # T[eacher]: <lastname>
 def R6(students, user_in):
@@ -24,7 +25,7 @@ def R6(students, user_in):
        last and the first name of the student. """
    for student in students:
       if user_in == student.TLastName:
-         print(student.StLastName + ", " + student.StFirstName)
+         print(student.StLastName + "," + student.StFirstName)
 
 # G[rade]: <Number>
 def R7(students, user_in):
@@ -33,7 +34,7 @@ def R7(students, user_in):
        of the student. """
    for student in students:
       if user_in == student.Grade:
-         print(student.StLastName + ", " + student.StFirstName)
+         print(student.StLastName + "," + student.StFirstName)
 
 # B[us]: <Number>
 def R8(students, user_in):
@@ -42,8 +43,8 @@ def R8(students, user_in):
        the last name of the student and their grade and classroom."""
    for student in students:
       if user_in == student.Bus:
-         print(student.StLastName + ", " + student.StFirstName + " Grade: " +
-               student.Grade + " Room: " + student.Classroom)
+         print(student.StLastName + "," + student.StFirstName + "," +
+               student.Grade + "," + student.Classroom)
 
 #G[rade]: <Number> H[igh]
 #                   or
@@ -67,15 +68,15 @@ def R9(students, user_in):
     if user_in[1].strip('igh') == "H":
         maxGPA = max(student.GPA for student in studentList)
         maxGPAStudent = [student for student in studentList if student.GPA == maxGPA][0]
-        print(maxGPAStudent.StLastName + ", " + maxGPAStudent.StFirstName + " GPA: " +
-              maxGPAStudent.GPA + " Teacher: " + maxGPAStudent.TLastName + ", " +
-              maxGPAStudent.TFirstName + " Bus: " + maxGPAStudent.Bus)
+        print(maxGPAStudent.StLastName + "," + maxGPAStudent.StFirstName + "," +
+              maxGPAStudent.GPA + "," + maxGPAStudent.TLastName + "," +
+              maxGPAStudent.TFirstName + "," + maxGPAStudent.Bus)
     if user_in[1].strip('ow') == "L":
         minGPA = min(student.GPA for student in studentList)
         minGPAStudent = [student for student in studentList if student.GPA == minGPA][0]
-        print(minGPAStudent.StLastName + ", " + minGPAStudent.StFirstName + " GPA: " +
-            minGPAStudent.GPA + " Teacher: " + minGPAStudent.TLastName + ", " +
-            minGPAStudent.TFirstName + " Bus: " +  minGPAStudent.Bus)
+        print(minGPAStudent.StLastName + "," + minGPAStudent.StFirstName + "," +
+            minGPAStudent.GPA + "," + minGPAStudent.TLastName + "," +
+            minGPAStudent.TFirstName + "," +  minGPAStudent.Bus)
 
 
 # A[verage]: <Number>
@@ -91,7 +92,7 @@ def R10(students, user_in):
     GPAList = [Decimal(student.GPA) for student in studentList]
     GPAAvg = sum(GPAList)/len(GPAList);
 
-    print("Grade: " + user_in + " Average GPA: " + str(round(GPAAvg, 2)))
+    print(user_in + "," + str(round(GPAAvg, 2)))
 
 
 # I[nfo]
