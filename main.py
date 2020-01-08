@@ -6,7 +6,7 @@ import os
 def main():
     students = student.parseStudents()
     not_quit = True
-
+    
     while not_quit:
         user_in = input().split(" ")
         if user_in[0][0] == 'S':
