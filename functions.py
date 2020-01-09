@@ -6,24 +6,24 @@ def R4(students, user_in):
     """ Search the contents of the students.txt file for the entry (or entries) for students with
     the given last name. For each entry found, print the last name, first name, grade and classroom
     assignment for each student found and the name of their teacher (last and first name). """
-    output = []
     for student in students:
         if user_in == student.StLastName:
-            output.append([student.StLastName, student.StFirstName, student.Grade, student.Classroom, student.TLastName, student.TFirstName])
+            output = [student.StLastName, student.StFirstName, student.Grade, student.Classroom, student.TLastName, student.TFirstName]
             print(student.StLastName + "," + student.StFirstName + "," + student.Grade +
             ","  + student.Classroom + "," + student.TLastName + "," +  student.TFirstName)
-    return output
+
+            return ",".join(output)
+
 # S[tudent]: <lastname> B[us]
 def R5(students, user_in):
     """ Search the contents of the students.txt file for the entry (or entries) for students with
         the given last name. For each entry found, print the last name, first name and the bus
         route the student takes. """
-    output = []
     for student in students:
         if user_in == student.StLastName:
+            output = [student.StLastName,student.StFirstName,student.Bus]
             print(student.StLastName + "," +student.StFirstName + "," + student.Bus)
-            output.append([student.StLastName, student.StFirstName, student.Bus])
-    return output
+    return ",".join(output)
 # T[eacher]: <lastname>
 def R6(students, user_in):
    """ Search the contents of the students.txt file for the entries where the last name of the

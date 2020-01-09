@@ -23,7 +23,7 @@ def main():
         if user_in[0][0] == 'S':
             if len(user_in) == 3 and user_in[2][0] == 'B':
                 R5(students, user_in[1])
-            elif len(user_in) == 2 and user_in[2][0] == 'B':
+            elif len(user_in) == 2:
                 R4(students, user_in[1])
             else:
                 print("Invalid number of arguments")
