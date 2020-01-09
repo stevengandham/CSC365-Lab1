@@ -1,3 +1,4 @@
+""" ALLEN ZHAI, WEI LIN, STEVEN GANDHAM """
 import unittest
 from functions import *
 import student
@@ -18,7 +19,7 @@ class Test(unittest.TestCase):
 
     def testR6(self):
         students = student.parseStudents()
-        self.assertEqual(R6(students, "HAMER"), [["LIBRANDI", "TODD"], 
+        self.assertEqual(R6(students, "HAMER"), [["LIBRANDI", "TODD"],
                                                  ["HAVIR", "BOBBIE"],
                                                  ["SARAO", "DIEDRA"],
                                                  ["VANCOTT", "MIKE"],
@@ -45,5 +46,26 @@ class Test(unittest.TestCase):
                                               ["MULLINGS", "LEIGHANN", "2", "108"],
                                               ["DURAND", "CARLEE", "4", "101"],
                                               ["FRIEDSTROM", "REED", "6", "106"]])
+
+    def testR9(self):
+        students = student.parseStudents()
+        self.assertEqual(R9(students, "3 H"),
+                        [["SWEDLUND","SHARRI","3.24","FAFARD","ROCIO","55"]])
+        self.assertEqual(R9(students, "3 Low"),
+                        [["CIGANEK","MANIE","2.79","FAFARD","ROCIO", "53"]])
+    def testR10(self):
+        students = student.parseStudents()
+        self.assertEqual(R10(students, "3"), [["3,3.05"]])
+        self.assertEqual(R10(students, "0"), [["0,0.0"]])
+    def testR11(self):
+        students = student.parseStudents()
+        self.assertEqual(R11(students), [['Grade 0', '0'],
+                                        ['Grade 1', '2'],
+                                        ['Grade 2', '13'],
+                                        ['Grade 3', '9'],
+                                        ['Grade 4', '15'],
+                                        ['Grade 5', '0'],
+                                        ['Grade 6', '21']])
+
 if __name__ == "__main__":
     unittest.main()

@@ -9,7 +9,7 @@ def R4(students, user_in):
     output = []
     for student in students:
         if user_in == student.StLastName:
-            output.append([student.StLastName, student.StFirstName, 
+            output.append([student.StLastName, student.StFirstName,
                            student.Grade, student.Classroom, student.TLastName,
                            student.TFirstName])
             #print(student.StLastName + "," + student.StFirstName + "," + student.Grade +
@@ -45,12 +45,12 @@ def R7(students, user_in):
    """ Search the contents of the students.txt file for the entries where the student's grade
        matches the number provided in the instruction. For each entry, output the name (last and first)
        of the student. """
-   output = [] 
+   output = []
    for student in students:
       if user_in == student.Grade:
          output.append([student.StLastName, student.StFirstName])
          #print(student.StLastName + "," + student.StFirstName)
-   return output 
+   return output
 
 # B[us]: <Number>
 def R8(students, user_in):
@@ -111,7 +111,9 @@ def R10(students, user_in):
     studentList = [student for student in students if user_in == student.Grade]
 
     GPAList = [Decimal(student.GPA) for student in studentList]
-    GPAAvg = sum(GPAList)/len(GPAList);
+    GPAAvg = 0
+    if (len(GPAList) != 0):
+        GPAAvg = sum(GPAList)/len(GPAList)
 
     #print(user_in + "," + str(round(GPAAvg, 2)))
     return [[user_in + "," + str(round(GPAAvg, 2))]]
