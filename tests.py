@@ -18,7 +18,7 @@ class Test(unittest.TestCase):
 
     def testR6(self):
         students = student.parseStudents()
-        self.assertEqual(R6(students, "HAMER"), [["LIBRANDI", "TODD"], 
+        self.assertEqual(R6(students, "HAMER"), [["LIBRANDI", "TODD"],
                                                  ["HAVIR", "BOBBIE"],
                                                  ["SARAO", "DIEDRA"],
                                                  ["VANCOTT", "MIKE"],
@@ -29,11 +29,13 @@ class Test(unittest.TestCase):
                                                  ["BERBES", "DICK"],
                                                  ["MULGREW", "RANDELL"],
                                                  ["TOWLEY", "LANE"]])
+        self.assertEqual(R6(students, "ZHAI"), [])
 
     def testR7(self):
         students = student.parseStudents()
         self.assertEqual(R7(students, "1"), [["SAELEE", "DANILO"],
                                              ["GARTH", "JOHN"]])
+        self.assertEqual(R7(students, "99"), [])
 
     def testR8(self):
         students = student.parseStudents()
@@ -45,5 +47,6 @@ class Test(unittest.TestCase):
                                               ["MULLINGS", "LEIGHANN", "2", "108"],
                                               ["DURAND", "CARLEE", "4", "101"],
                                               ["FRIEDSTROM", "REED", "6", "106"]])
+        self.assertEqual(R8(students, "1000"), [])
 if __name__ == "__main__":
     unittest.main()
