@@ -25,10 +25,10 @@ def parseStudents():
                         s = Student(info[0], info[1], int(info[2]), int(info[3]), int(info[4]), float(info[5]), info[6], info[7])
                         Students.append(s)
                     except:
-                        return None
+                        return Students
                 else:
-                    return None
+                    return Students
     except:
-        return None
+        return Students
 
     return Students
