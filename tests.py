@@ -66,6 +66,7 @@ class Test(unittest.TestCase):
                                         ['Grade 4', '15'],
                                         ['Grade 5', '0'],
                                         ['Grade 6', '21']])
+                                        
 
 if __name__ == "__main__":
     unittest.main()
