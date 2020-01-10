@@ -20,8 +20,14 @@ def parseStudents():
         with open("students.txt", "r") as studentsFile:
             for line in studentsFile:
                 info = line.strip("\n").split(",")
-                s = Student(info[0], info[1], info[2], info[3], info[4], info[5], info[6], info[7])
-                Students.append(s)
+                if len(info) == 8:
+                    try:
+                        s = Student(info[0], info[1], int(info[2]), int(info[3]), int(info[4]), float(info[5]), info[6], info[7])
+                        Students.append(s)
+                    except:
+                        return None
+                else:
+                    return None
     except:
         return None
 
