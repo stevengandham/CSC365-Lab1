@@ -1,7 +1,7 @@
 """ ALLEN ZHAI, WEI LIN, STEVEN GANDHAM """
 import unittest
 from functions import *
-import schoolSearch
+import schoolsearch
 import student
 import io
 import sys
@@ -77,15 +77,15 @@ class Test(unittest.TestCase):
     
     def ErrorHandling(self):
         students = student.parseStudents("test.txt") 
-        self.assertEqual(schoolSearch.checkLoadFile(students), False)
+        self.assertEqual(schoolsearch.checkLoadFile(students), False)
         students = student.parseStudents("students.txt")
-        self.assertEqual(schoolSearch.checkLoadFile(students), True)
+        self.assertEqual(schoolsearch.checkLoadFile(students), True)
 
     def testALL(self):
         students = student.parseStudents("test.txt") 
-        self.assertEqual(schoolSearch.checkLoadFile(students), False)
+        self.assertEqual(schoolsearch.checkLoadFile(students), False)
         students = student.parseStudents("students.txt")
-        self.assertEqual(schoolSearch.checkLoadFile(students), True)
+        self.assertEqual(schoolsearch.checkLoadFile(students), True)
         self.assertEqual(R4(students, "HAVIR"), [["HAVIR","BOBBIE","2","108",
                                                   "HAMER","GAVIN"]])
         self.assertEqual(R5(students, "HAVIR"), [["HAVIR","BOBBIE","0"]])
