@@ -13,10 +13,12 @@ class Test(unittest.TestCase):
         students = student.parseStudents("students.txt")
         self.assertEqual(R4(students, "HAVIR"), [["HAVIR","BOBBIE","2","108",
                                                   "HAMER","GAVIN"]])
+        self.assertEqual(R4(students, "LIN"), [])
 
     def testR5(self):
         students = student.parseStudents("students.txt")
         self.assertEqual(R5(students, "HAVIR"), [["HAVIR","BOBBIE","0"]])
+        self.assertEqual(R4(students, "LIN"), [])
 
     def testR6(self):
         students = student.parseStudents("students.txt")
