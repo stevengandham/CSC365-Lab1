@@ -10,7 +10,7 @@ def R4(students, user_in):
     for student in students:
         if user_in == student.StLastName:
             output.append([student.StLastName, student.StFirstName,
-                           student.Grade, student.Classroom, student.TLastName,
+                           str(student.Grade), str(student.Classroom), student.TLastName,
                            student.TFirstName])
             #print(student.StLastName + "," + student.StFirstName + "," + student.Grade +
             #","  + student.Classroom + "," + student.TLastName + "," +  student.TFirstName)
@@ -24,7 +24,7 @@ def R5(students, user_in):
     output = []
     for student in students:
         if user_in == student.StLastName:
-            output.append([student.StLastName,student.StFirstName,student.Bus])
+            output.append([student.StLastName,student.StFirstName,str(student.Bus)])
             #print(student.StLastName + "," +student.StFirstName + "," + student.Bus)
     return output
 
@@ -47,7 +47,7 @@ def R7(students, user_in):
        of the student. """
    output = []
    for student in students:
-      if user_in == student.Grade:
+      if user_in == str(student.Grade):
          output.append([student.StLastName, student.StFirstName])
          #print(student.StLastName + "," + student.StFirstName)
    return output
@@ -59,9 +59,9 @@ def R8(students, user_in):
        the last name of the student and their grade and classroom."""
    output = []
    for student in students:
-      if user_in == student.Bus:
-         output.append([student.StLastName, student.StFirstName, student.Grade,
-                   student.Classroom])
+      if user_in == str(student.Bus):
+         output.append([student.StLastName, student.StFirstName, str(student.Grade),
+                   str(student.Classroom)])
          #print(student.StLastName + "," + student.StFirstName + "," +
          #      student.Grade + "," + student.Classroom)
    return output
@@ -81,25 +81,27 @@ def R9(students, user_in):
         for the given grade with the lowest GPA. Report the contents of this entry (name of the
         student, GPA, teacher, bus route)."""
     user_in = user_in.split();
-    studentList = [student for student in students if user_in[0] == student.Grade]
-    if user_in[1].strip('igh') == "H":
+    studentList = [student for student in students if user_in[0] == str(student.Grade)]
+    if len(studentList) == 0:
+        return []
+    elif user_in[1].strip('igh') == "H":
         maxGPA = max(student.GPA for student in studentList)
         maxGPAStudent = [student for student in studentList if student.GPA == maxGPA][0]
         #print(maxGPAStudent.StLastName + "," + maxGPAStudent.StFirstName + "," +
         #      maxGPAStudent.GPA + "," + maxGPAStudent.TLastName + "," +
         #      maxGPAStudent.TFirstName + "," + maxGPAStudent.Bus)
         return [[maxGPAStudent.StLastName, maxGPAStudent.StFirstName,
-                 maxGPAStudent.GPA, maxGPAStudent.TLastName,
-                 maxGPAStudent.TFirstName, maxGPAStudent.Bus]]
-    if user_in[1].strip('ow') == "L":
+                 str(maxGPAStudent.GPA), maxGPAStudent.TLastName,
+                 maxGPAStudent.TFirstName, str(maxGPAStudent.Bus)]]
+    elif user_in[1].strip('ow') == "L":
         minGPA = min(student.GPA for student in studentList)
         minGPAStudent = [student for student in studentList if student.GPA == minGPA][0]
         #print(minGPAStudent.StLastName + "," + minGPAStudent.StFirstName + "," +
         #    minGPAStudent.GPA + "," + minGPAStudent.TLastName + "," +
         #    minGPAStudent.TFirstName + "," +  minGPAStudent.Bus)
         return [[minGPAStudent.StLastName, minGPAStudent.StFirstName,
-                 minGPAStudent.GPA, minGPAStudent.TLastName,
-                 minGPAStudent.TFirstName, minGPAStudent.Bus]]
+                 str(minGPAStudent.GPA), minGPAStudent.TLastName,
+                 minGPAStudent.TFirstName,str(minGPAStudent.Bus)]]
 
 
 # A[verage]: <Number>
@@ -108,15 +110,20 @@ def R10(students, user_in):
         matches the number provided in the instruction.Compute the average GPA score for
         the entries found. Output the grade level (the number provided in command) and the
         average GPA score computed."""
-    studentList = [student for student in students if user_in == student.Grade]
+    studentList = [student for student in students if user_in == str(student.Grade)]
+    if len(studentList) == 0:
+        return []
+    else:
 
-    GPAList = [Decimal(student.GPA) for student in studentList]
-    GPAAvg = 0
-    if (len(GPAList) != 0):
-        GPAAvg = sum(GPAList)/len(GPAList)
+        #GPAList = [Decimal(student.GPA) for student in studentList]
+        GPAList = [student.GPA for student in studentList]
+        GPAAvg = 0
+        if (len(GPAList) != 0):
+            GPAAvg = sum(GPAList)/len(GPAList)
 
-    #print(user_in + "," + str(round(GPAAvg, 2)))
-    return [[user_in + "," + str(round(GPAAvg, 2))]]
+
+        #print(user_in + "," + str(round(GPAAvg, 2)))
+        return [[user_in + "," + str(round(GPAAvg, 2))]]
 
 # I[nfo]
 def R11(students):
@@ -127,7 +134,7 @@ def R11(students):
 
         sorted in ascending order by grade."""
 
-    gradeList = [student.Grade for student in students]
+    gradeList = [str(student.Grade) for student in students]
     output = []
     classCount = []
     for i in range(0,7):
