@@ -22,10 +22,9 @@ def checkLoadFile(students):
                 "    T[eacher]: <lastname>\n    B[us]: <number>\n    G[rade]: <number> [H[igh]|L[ow]]\n " +
                 "   A[verage]: <number>\n    I[nfo]\n    Q[uit]")
         return True
-   
-      
+     
 def main():
-    students = student.parseStudents()
+    students = student.parseStudents("students.txt")
     not_quit = checkLoadFile(students)
 
     while not_quit:

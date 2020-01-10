@@ -14,10 +14,11 @@ class Student:
     def __repr__(self):
         return "Last Name: {}\nFirst Name: {}\nGrade: {}\nClassroom: {}\nBus: {}\nGPA: {}\nTeacher Last Name: {}\nTeacher First Name: {}\n".format(self.StLastName, self.StFirstName, self.Grade, self.Classroom, self.Bus, self.GPA, self.TLastName, self.TFirstName)
 
-def parseStudents():
+
+def parseStudents(filename):
     Students = []
     try:
-        with open("students.txt", "r") as studentsFile:
+        with open(filename, "r") as studentsFile:
             for line in studentsFile:
                 info = line.strip("\n").split(",")
                 if len(info) == 8:
