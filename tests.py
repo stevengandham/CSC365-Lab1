@@ -48,9 +48,7 @@ class Test(unittest.TestCase):
                                               ["MULLINGS", "LEIGHANN", "2", "108"],
                                               ["DURAND", "CARLEE", "4", "101"],
                                               ["FRIEDSTROM", "REED", "6", "106"]])
-<<<<<<< HEAD
         self.assertEqual(R8(students, "1000"), [])
-=======
 
     def testR9(self):
         students = student.parseStudents()
@@ -71,8 +69,6 @@ class Test(unittest.TestCase):
                                         ['Grade 4', '15'],
                                         ['Grade 5', '0'],
                                         ['Grade 6', '21']])
-                                        
 
->>>>>>> 6f7f8ceb0c4e548e88366f5e6812f7ff5d028a79
 if __name__ == "__main__":
     unittest.main()
