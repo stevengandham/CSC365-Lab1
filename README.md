@@ -1,5 +1,8 @@
-# CSC365-Lab1
+# CSC365-Lab1: Allen Zhai, Steven Gandham, Wei Lin
 CSC 365 Databases Lab 1
 
+To run program, run the command:
+python3 schoolSearch.py
 
-file:///Users/allenzhai/Downloads/CSC_365___Lab_1_Part_I___Winter_2020%20(1).pdf
+To run tests, run the command:
+python3 tests.py
