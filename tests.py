@@ -59,7 +59,7 @@ class Test(unittest.TestCase):
     def testR10(self):
         students = student.parseStudents()
         self.assertEqual(R10(students, "3"), [["3,3.05"]])
-        self.assertEqual(R10(students, "0"), [["0,0.0"]])
+        self.assertEqual(R10(students, "0"), [["0,0"]])
     def testR11(self):
         students = student.parseStudents()
         self.assertEqual(R11(students), [['Grade 0', '0'],
