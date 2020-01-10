@@ -56,10 +56,14 @@ class Test(unittest.TestCase):
                         [["SWEDLUND","SHARRI","3.24","FAFARD","ROCIO","55"]])
         self.assertEqual(R9(students, "3 Low"),
                         [["CIGANEK","MANIE","2.79","FAFARD","ROCIO", "53"]])
+        self.assertEqual(R9(students, "99 Low"), [])
+        self.assertEqual(R9(students, "99 High"), [])
+
     def testR10(self):
         students = student.parseStudents()
         self.assertEqual(R10(students, "3"), [["3,3.05"]])
         self.assertEqual(R10(students, "0"), [["0,0"]])
+        self.assertEqual(R10(students, "99"), [])
     def testR11(self):
         students = student.parseStudents()
         self.assertEqual(R11(students), [['Grade 0', '0'],
