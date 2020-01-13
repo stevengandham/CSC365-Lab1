@@ -148,3 +148,27 @@ def R11(students):
     #     "\nGrade 5: " + classCount[5] +
     #      "\nGrade 6: " + classCount[6])
     return output
+
+# Given a classroom number, list all students assigned to it
+def NR1():
+    pass
+
+# Given a classroom number, find the teacher (or teachers) teaching in it
+def NR2():
+    pass
+
+# Given a grade, find all teachers who teach it
+def NR3():
+    pass
+
+# Report the enrollments broken down by classroom (i.e., ouput a list of
+# classrooms ordered by classroom number, with a total number of students
+# in each of the classrooms).
+def NR4():
+    pass
+
+# Add to your program the commands that allow a data analyst to extract
+# appropriate data to be able to analyze whether student GPAs are affected by
+# the student's grades, student's teachers or the bus routes the students are on
+def NR5():
+    pass
