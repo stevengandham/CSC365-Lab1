@@ -150,9 +150,11 @@ def R11(students):
     return output
 
 # Given a classroom number, list all students assigned to it
-def NR1():
-    pass
+def NR1(students, user_in):
+    """ Given a classroom number, list all students assigned to it. """
 
+    lst = [[student.StLastName, student.StFirstName] for student in students if user_in == str(student.Classroom)]
+    return lst
 # Given a classroom number, find the teacher (or teachers) teaching in it
 def NR2():
     pass
