@@ -140,11 +140,22 @@ def R11(students):
     for i in range(0,7):
         classCount.append(str(gradeList.count(str(i))))
         output.append(["Grade " + str(i), str(gradeList.count(str(i)))])
-    #print("Grade 0: " + classCount[0] +
-    #      "\nGrade 1: " + classCount[1] +
-    #      "\nGrade 2: " + classCount[2] +
-    #      "\nGrade 3: " + classCount[3] +
-    #      "\nGrade 4: " + classCount[4] +
-    #     "\nGrade 5: " + classCount[5] +
-    #      "\nGrade 6: " + classCount[6])
+
     return output
+
+def NR1(students, user_in):
+    """ Given a classroom number, list all students assigned to it. """
+
+    lst = [[student.StLastName, student.StFirstName] for student in students if user_in == str(student.Classroom)]
+    return lst
+
+def NR2(students, user_in):
+    """ Given a classroom number, find the teacher (or teachers) teaching in it. """
+
+def NR3(students, user_in):
+    """ Given a grade, find all teachers who teach it. """
+
+def NR4(students, user_in):
+    """ Report the enrollments broken down by classroom
+    (i.e., output a list of classrooms ordered by classroom number, with a total number of
+    students in each of the classrooms. """

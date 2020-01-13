@@ -10,16 +10,16 @@ import sys
 class Test(unittest.TestCase):
 
     def testR4(self):
-        students = student.parseStudents("students.txt")
+        students = student.parseStudents("list.txt","teachers.txt")
         self.assertEqual(R4(students, "HAVIR"), [["HAVIR","BOBBIE","2","108",
                                                   "HAMER","GAVIN"]])
 
     def testR5(self):
-        students = student.parseStudents("students.txt")
+        students = student.parseStudents("list.txt","teachers.txt")
         self.assertEqual(R5(students, "HAVIR"), [["HAVIR","BOBBIE","0"]])
 
     def testR6(self):
-        students = student.parseStudents("students.txt")
+        students = student.parseStudents("list.txt","teachers.txt")
         self.assertEqual(R6(students, "HAMER"), [["LIBRANDI", "TODD"],
                                                  ["HAVIR", "BOBBIE"],
                                                  ["SARAO", "DIEDRA"],
@@ -34,13 +34,13 @@ class Test(unittest.TestCase):
         self.assertEqual(R6(students, "ZHAI"), [])
 
     def testR7(self):
-        students = student.parseStudents("students.txt")
+        students = student.parseStudents("list.txt","teachers.txt")
         self.assertEqual(R7(students, "1"), [["SAELEE", "DANILO"],
                                              ["GARTH", "JOHN"]])
         self.assertEqual(R7(students, "99"), [])
 
     def testR8(self):
-        students = student.parseStudents("students.txt")
+        students = student.parseStudents("list.txt","teachers.txt")
         self.assertEqual(R8(students, "51"), [["WOOLERY", "NOLAN", "2", "104"],
                                               ["STERBACK", "PETER", "6", "111"],
                                               ["LIBRANDI", "TODD", "2", "108"],
@@ -52,7 +52,7 @@ class Test(unittest.TestCase):
         self.assertEqual(R8(students, "1000"), [])
 
     def testR9(self):
-        students = student.parseStudents("students.txt")
+        students = student.parseStudents("list.txt","teachers.txt")
         self.assertEqual(R9(students, "3 H"),
                         [["SWEDLUND","SHARRI","3.24","FAFARD","ROCIO","55"]])
         self.assertEqual(R9(students, "3 Low"),
@@ -61,12 +61,12 @@ class Test(unittest.TestCase):
         self.assertEqual(R9(students, "99 High"), [])
 
     def testR10(self):
-        students = student.parseStudents("students.txt")
+        students = student.parseStudents("list.txt","teachers.txt")
         self.assertEqual(R10(students, "3"), [["3,3.05"]])
         self.assertEqual(R10(students, "99"), [])
 
     def testR11(self):
-        students = student.parseStudents("students.txt")
+        students = student.parseStudents("list.txt","teachers.txt")
         self.assertEqual(R11(students), [['Grade 0', '0'],
                                         ['Grade 1', '2'],
                                         ['Grade 2', '13'],
@@ -74,17 +74,17 @@ class Test(unittest.TestCase):
                                         ['Grade 4', '15'],
                                         ['Grade 5', '0'],
                                         ['Grade 6', '21']])
-    
+
     def ErrorHandling(self):
-        students = student.parseStudents("test.txt") 
+        students = student.parseStudents("test.txt")
         self.assertEqual(schoolSearch.checkLoadFile(students), False)
-        students = student.parseStudents("students.txt")
+        students = student.parseStudents("list.txt","teachers.txt")
         self.assertEqual(schoolSearch.checkLoadFile(students), True)
 
     def testALL(self):
-        students = student.parseStudents("test.txt") 
+        students = student.parseStudents("test.txt")
         self.assertEqual(schoolSearch.checkLoadFile(students), False)
-        students = student.parseStudents("students.txt")
+        students = student.parseStudents("list.txt","teachers.txt")
         self.assertEqual(schoolSearch.checkLoadFile(students), True)
         self.assertEqual(R4(students, "HAVIR"), [["HAVIR","BOBBIE","2","108",
                                                   "HAMER","GAVIN"]])
@@ -128,6 +128,16 @@ class Test(unittest.TestCase):
                                         ['Grade 4', '15'],
                                         ['Grade 5', '0'],
                                         ['Grade 6', '21']])
-        
+    def testNR1(self):
+        self.maxDiff = None;
+        students = student.parseStudents("list.txt","teachers.txt")
+        print(NR1(students, "105"))
+        self.assertEqual(NR1(students, "105"), [['CORKER', 'CARTER'],
+                                                 ['IMMERMAN', 'DEVIN'],
+                                                 ['RAPOSE', 'ALONZO'],
+                                                 ['OGAS', 'ERVIN'],
+                                                 ['MASSART', 'ELDON'],
+                                                 ['BEX', 'TAMESHA']])
+
 if __name__ == "__main__":
     unittest.main()
