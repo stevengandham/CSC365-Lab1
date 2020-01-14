@@ -21,8 +21,10 @@ def parseStudents(studentFilename, teacherFilename):
         with open(studentFilename, "r") as studentsFile:
             for line in studentsFile:
                 info = line.strip(" \n").split(",")
+                info[1] = info[1].strip(" ")
                 if len(info) == 6:
                     s = Student(info[0], info[1], int(info[2]), int(info[3]), int(info[4]), float(info[5]))
+                    print(s)
                     Students.append(s)
     except:
         return []
