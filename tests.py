@@ -75,13 +75,14 @@ class Test(unittest.TestCase):
                                         ['Grade 5', '0'],
                                         ['Grade 6', '21']])
 
+
     def ErrorHandling(self):
         students = student.parseStudents("list.txt","teachers.txt")
         self.assertEqual(schoolSearch.checkLoadFile(students), True)
 
     def testALL(self):
         students = student.parseStudents("list.txt","teachers.txt")
-        self.assertEqual(schoolSearch.checkLoadFile(students), True)
+        self.assertEqual(schoolsearch.checkLoadFile(students), True)
         self.assertEqual(R4(students, "HAVIR"), [["HAVIR","BOBBIE","2","108",
                                                   "HAMER","GAVIN"]])
         self.assertEqual(R5(students, "HAVIR"), [["HAVIR","BOBBIE","0"]])
@@ -127,13 +128,15 @@ class Test(unittest.TestCase):
     def testNR1(self):
         self.maxDiff = None;
         students = student.parseStudents("list.txt","teachers.txt")
-        print(NR1(students, "105"))
         self.assertEqual(NR1(students, "105"), [['CORKER', 'CARTER'],
                                                  ['IMMERMAN', 'DEVIN'],
                                                  ['RAPOSE', 'ALONZO'],
                                                  ['OGAS', 'ERVIN'],
                                                  ['MASSART', 'ELDON'],
                                                  ['BEX', 'TAMESHA']])
+    def testNR3(self):
+        students = student.parseStudents("list.txt","teachers.txt")
+        self.assertEqual(NR3(students, '2'), [["STEIB", "GALE"], ["HAMER", "GAVIN"]])
 
 if __name__ == "__main__":
     unittest.main()

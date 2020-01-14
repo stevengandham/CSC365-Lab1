@@ -31,8 +31,6 @@ def parseStudents(studentFilename, teacherFilename):
         with open(teacherFilename, "r") as teacherFile:
             for line in teacherFile:
                 info = line.strip("\n").split(", ")
-                print(info)
-                print(len(info))
                 if len(info) == 3:
                         for student in Students:
                             if student.Classroom ==int(info[2]):
@@ -40,8 +38,5 @@ def parseStudents(studentFilename, teacherFilename):
                                 student.TFirstName = info[1]
     except:
         return []
-
-    print("Students")
-    print(Students)
-
+        
     return Students

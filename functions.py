@@ -160,8 +160,13 @@ def NR2():
     pass
 
 # Given a grade, find all teachers who teach it
-def NR3():
-    pass
+def NR3(students, user_in):
+    lst = []
+    for student in students:
+        if int(user_in) == student.Grade:
+            if [student.TLastName, student.TFirstName] not in lst:
+                lst.append([student.TLastName, student.TFirstName])
+    return lst
 
 # Report the enrollments broken down by classroom (i.e., ouput a list of
 # classrooms ordered by classroom number, with a total number of students
