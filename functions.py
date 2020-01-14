@@ -153,8 +153,10 @@ def R11(students):
 def NR1(students, user_in):
     """ Given a classroom number, list all students assigned to it. """
 
-    lst = [[student.StLastName, student.StFirstName] for student in students if user_in == str(student.Classroom)]
+    lst = [[student.StLastName, student.StFirstName] for student in students 
+            if user_in == str(student.Classroom)]
     return lst
+
 # Given a classroom number, find the teacher (or teachers) teaching in it
 def NR2(students, user_in):
     lst = []
@@ -176,8 +178,18 @@ def NR3(students, user_in):
 # Report the enrollments broken down by classroom (i.e., ouput a list of
 # classrooms ordered by classroom number, with a total number of students
 # in each of the classrooms).
-def NR4():
-    pass
+# E[nrollment]
+def NR4(students):
+    classroom_dic = {}
+    lst = []
+    for student in students:
+        if student.Classroom not in classroom_dic:
+            classroom_dic[student.Classroom] = 1
+        else:
+            classroom_dic[student.Classroom] +=1
+    for key in sorted(classroom_dic.keys()):
+        lst.append(["Room "+ str(key),str(classroom_dic[key])+ " student(s)"])
+    return lst
 
 # Add to your program the commands that allow a data analyst to extract
 # appropriate data to be able to analyze whether student GPAs are affected by

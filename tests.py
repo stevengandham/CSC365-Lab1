@@ -77,10 +77,22 @@ class Test(unittest.TestCase):
 
 
     def ErrorHandling(self):
+        students = student.parseStudents("test.txt", "teachers.txt")
+        self.assertEqual(schoolsearch.checkLoadFile(students),False)
+        students = student.parseStudents("list.txt", "test.txt")
+        self.assertEqual(schoolsearch.checkLoadFile(students),False)
+        students = student.parseStudents("test.txt", "test1.txt")
+        self.assertEqual(schoolsearch.checkLoadFile(students),False)
         students = student.parseStudents("list.txt","teachers.txt")
-        self.assertEqual(schoolSearch.checkLoadFile(students), True)
+        self.assertEqual(schoolsearch.checkLoadFile(students), True)
 
     def testALL(self):
+        students = student.parseStudents("test.txt", "teachers.txt")
+        self.assertEqual(schoolsearch.checkLoadFile(students),False)
+        students = student.parseStudents("list.txt", "test.txt")
+        self.assertEqual(schoolsearch.checkLoadFile(students),False)
+        students = student.parseStudents("test.txt", "test1.txt")
+        self.assertEqual(schoolsearch.checkLoadFile(students),False)
         students = student.parseStudents("list.txt","teachers.txt")
         self.assertEqual(schoolsearch.checkLoadFile(students), True)
         self.assertEqual(R4(students, "HAVIR"), [["HAVIR","BOBBIE","2","108",
@@ -137,6 +149,21 @@ class Test(unittest.TestCase):
     def testNR3(self):
         students = student.parseStudents("list.txt","teachers.txt")
         self.assertEqual(NR3(students, '2'), [["STEIB", "GALE"], ["HAMER", "GAVIN"]])
+
+    def testNR4(self):
+        students = student.parseStudents("list.txt","teachers.txt")
+        self.assertEqual(NR4(students), [["Room 101", "1 student(s)"],
+                                         ["Room 102", "5 student(s)"],
+                                         ["Room 103", "2 student(s)"],
+                                         ["Room 104", "2 student(s)"],
+                                         ["Room 105", "6 student(s)"],
+                                         ["Room 106", "2 student(s)"],
+                                         ["Room 107", "7 student(s)"],
+                                         ["Room 108", "11 student(s)"],
+                                         ["Room 109", "5 student(s)"],
+                                         ["Room 110", "2 student(s)"],
+                                         ["Room 111", "9 student(s)"],
+                                         ["Room 112", "8 student(s)"]]) 
 
 if __name__ == "__main__":
     unittest.main()

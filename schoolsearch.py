@@ -76,6 +76,9 @@ def main():
         elif len(user_in) == 2 and user_in[0][0] == 'P':
             output = NR3(students, user_in[1])
             printOutput(output)
+        elif len(user_in) == 1 and user_in[0][0] == 'E':
+            output = NR4(students)
+            printInfo(output)
         elif user_in[0][0] == 'Q':
             not_quit = False
         else:
