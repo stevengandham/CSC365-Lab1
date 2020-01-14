@@ -156,8 +156,13 @@ def NR1(students, user_in):
     lst = [[student.StLastName, student.StFirstName] for student in students if user_in == str(student.Classroom)]
     return lst
 # Given a classroom number, find the teacher (or teachers) teaching in it
-def NR2():
-    pass
+def NR2(students, user_in):
+    lst = []
+    for student in students:
+        if int(user_in) == student.Classroom:
+            if [student.TLastName, student.TFirstName] not in lst:
+                lst.append([student.TLastName, student.TFirstName])
+    return lst
 
 # Given a grade, find all teachers who teach it
 def NR3(students, user_in):
