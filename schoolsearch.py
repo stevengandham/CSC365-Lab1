@@ -96,6 +96,9 @@ def main():
                 elif user_in[2][0] == 'T':
                     output = NR2(students, user_in[1])
                 printOutput(output)
+            else:
+                print("Invalid number of arguments")
+                print("Usage:  C[lass]: <number> [S[tudent]] [T[eacher]]\n")
         elif user_in[0][0] == 'A':
             if len(user_in) == 2:
                 output = R10(students, user_in[1])
