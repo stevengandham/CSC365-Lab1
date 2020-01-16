@@ -196,26 +196,26 @@ def NR4(students):
 # the student's grades, student's teachers or the bus routes the students are on
 # D[ata]
 def get_values(students):
-   grade_dic={}
-   teacher_dic={}
-   bus_dic={}
-   for student in students:
-       if student.Grade not in grade_dic:
-           grade_dic[student.Grade] = [1,student.GPA]
-       else:
-           grade_dic[student.Grade][0] += 1
-           grade_dic[student.Grade][1] +=student.GPA
-       if student.TLastName not in teacher_dic:
-           teacher_dic[student.TLastName] = [1,student.GPA]
-       else:
-           teacher_dic[student.TLastName][0] += 1
-           teacher_dic[student.TLastName][1] += student.GPA
-       if student.Bus not in bus_dic:
-           bus_dic[student.Bus] = [1, student.GPA]
-       else:
-           bus_dic[student.Bus][0] += 1 
-           bus_dic[student.Bus][1] += student.GPA
-   return grade_dic, teacher_dic, bus_dic
+    grade_dic={}
+    teacher_dic={}
+    bus_dic={}
+    for student in students:
+        if student.Grade not in grade_dic:
+            grade_dic[student.Grade] = [1,student.GPA]
+        else:
+            grade_dic[student.Grade][0] += 1
+            grade_dic[student.Grade][1] +=student.GPA
+        if student.TLastName not in teacher_dic:
+            teacher_dic[student.TLastName] = [1,student.GPA]
+        else:
+            teacher_dic[student.TLastName][0] += 1
+            teacher_dic[student.TLastName][1] += student.GPA
+        if student.Bus not in bus_dic:
+            bus_dic[student.Bus] = [1, student.GPA]
+        else:
+            bus_dic[student.Bus][0] += 1 
+            bus_dic[student.Bus][1] += student.GPA
+    return grade_dic, teacher_dic, bus_dic
    
 def NR5(students):
     g, t, b = get_values(students)
@@ -223,12 +223,12 @@ def NR5(students):
     teacher = []
     bus = []
     for key in sorted(g.keys()):
-       avg_GPA = round(g[key][1]/g[key][0],2)
-       grade.append(["Grade " + str(key),str(avg_GPA)])
+        avg_GPA = round(g[key][1]/g[key][0],2)
+        grade.append(["Grade " + str(key),str(avg_GPA)])
     for key in sorted(t.keys()):
-       avg_GPA = round(t[key][1]/t[key][0],2)
-       teacher.append([str(key),str(avg_GPA)]) 
+        avg_GPA = round(t[key][1]/t[key][0],2)
+        teacher.append([str(key),str(avg_GPA)]) 
     for key in sorted(b.keys()):
-       avg_GPA = round(b[key][1]/b[key][0],2)
-       bus.append(["Route " + str(key),str(avg_GPA)])
+        avg_GPA = round(b[key][1]/b[key][0],2)
+        bus.append(["Route " + str(key),str(avg_GPA)])
     return grade, teacher, bus

@@ -165,5 +165,22 @@ class Test(unittest.TestCase):
                                          ["Room 111", "9 student(s)"],
                                          ["Room 112", "8 student(s)"]]) 
 
+    def testNR5(self):
+        students = student.parseStudents("list.txt","teachers.txt")
+        g,t,b = NR5(students)
+        self.assertEqual(g,[['Grade 1','3.0'],['Grade 2','2.95'],
+                            ['Grade 3','3.05'],['Grade 4','2.95'],
+                            ['Grade 6','2.98']])
+        self.assertEqual(t,[['ALPERT','3.17'],['BODZIONY','3.09'],
+                            ['CHIONCHIO','2.98'],['COOL','2.91'],
+                            ['FAFARD','3.01'],['FALKER','3.0'],
+                            ['GAMBREL','2.96'],['HAMER','2.95'],
+                            ['HANTZ','2.91'],['KERBS','2.98'],
+                            ['NISTENDIRK','2.96'],['STEIB','2.9']])
+        self.assertEqual(b,[['Route 0','2.95'],['Route 51','3.02'],
+                            ['Route 52','2.88'], ['Route 53','3.06'],
+                            ['Route 54','2.94'],['Route 55','3.04'],
+                            ['Route 56','2.92']])
+
 if __name__ == "__main__":
     unittest.main()
