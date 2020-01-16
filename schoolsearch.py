@@ -4,6 +4,13 @@ import student
 import sys
 import os
 
+def printPrompt():
+    print("Commands Available:\n    S[tudent]: <lastname> [B[us]]\n" +
+          "    T[eacher]: <lastname>\n    B[us]: <number>\n"+
+          "    G[rade]: <number> [H[igh]|L[ow]]\n" +
+          "    A[verage]: <number>\n    I[nfo]\n    E[nrollment]\n" +
+          "    Q[uit]")
+
 def printOutput(output):
     for entry in output:
         print(",".join(entry))
@@ -18,10 +25,25 @@ def checkLoadFile(students):
         return False
     else:
         print("Loaded Student Information")
-        print("Commands Available:\n    S[tudent]: <lastname> [B[us]]\n" +
-                "    T[eacher]: <lastname>\n    B[us]: <number>\n    G[rade]: <number> [H[igh]|L[ow]]\n " +
-                "   A[verage]: <number>\n    I[nfo]\n    Q[uit]")
+        printPrompt()
         return True
+
+def DataPrompt(grade, teacher, bus):
+    print("Average GPA sorted by:\n    G[rade]\n    T[eacher]\n    B[us]")
+    while True:
+      user_in = input().split(" ")
+      if user_in[0][0] == 'G':
+          printInfo(grade)
+          return;
+      elif user_in[0][0] == 'T':
+          printInfo(teacher)
+          return;
+      elif user_in[0][0] == 'B':
+          printInfo(bus)
+          return;
+      else:
+         print("Invalide option")
+
 
 def main():
     students = student.parseStudents("list.txt", "teachers.txt")
@@ -79,6 +101,12 @@ def main():
         elif len(user_in) == 1 and user_in[0][0] == 'E':
             output = NR4(students)
             printInfo(output)
+        elif len(user_in) == 1 and user_in[0][0] == '1':
+            print("Computing Data...")
+            grade, teacher, bus = NR5(students)
+            d = DataPrompt(grade, teacher, bus)
+            print()
+            printPrompt()
         elif user_in[0][0] == 'Q':
             not_quit = False
         else:
