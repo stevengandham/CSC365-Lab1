@@ -7,7 +7,8 @@ import os
 def printPrompt():
     print("Commands Available:\n    S[tudent]: <lastname> [B[us]]\n" +
           "    T[eacher]: <lastname>\n    B[us]: <number>\n"+
-          "    G[rade]: <number> [H[igh]|L[ow]]\n" +
+          "    G[rade]: <number> [H[igh]|L[ow]][T[eacher]]\n" +
+          "    C[lass]: <number> [S[tudent]] [T[eacher]]\n" +
           "    A[verage]: <number>\n    I[nfo]\n    E[nrollment]\n" +
           "    Q[uit]")
 
@@ -77,14 +78,24 @@ def main():
                 print("Usage: B[us]: <number>")
         elif user_in[0][0] == 'G':
             if len(user_in) == 3:
-                output = R9(students, " ".join(user_in[1:]))
+                if user_in[2][0] == 'T':
+                    output = NR3(students, user_in[1])
+                else:
+                    output = R9(students, " ".join(user_in[1:]))
                 printOutput(output)
             elif len(user_in) == 2:
                 output = R7(students, user_in[1])
                 printOutput(output)
             else:
                 print("Invalid number of arguments")
-                print("Usage: G[rade]: <number> [H[igh]|L[ow]]")
+                print("Usage: G[rade]: <number> [H[igh]|L[ow]][T[eacher]]")
+        elif user_in[0][0] == 'C':
+            if len(user_in) == 3:
+                if user_in[2][0] == 'S':
+                    output = NR1(students, user_in[1])
+                elif user_in[2][0] == 'T':
+                    output = NR2(students, user_in[1])
+                printOutput(output)
         elif user_in[0][0] == 'A':
             if len(user_in) == 2:
                 output = R10(students, user_in[1])
