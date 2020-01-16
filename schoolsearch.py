@@ -10,15 +10,17 @@ def printPrompt():
           "    G[rade]: <number> [H[igh]|L[ow]][T[eacher]]\n" +
           "    C[lass]: <number> [S[tudent]] [T[eacher]]\n" +
           "    A[verage]: <number>\n    I[nfo]\n    E[nrollment]\n" +
-          "    Q[uit]")
+          "    D[ata]\n    Q[uit]")
 
 def printOutput(output):
     for entry in output:
         print(",".join(entry))
+    print()
 
 def printInfo(output):
     for entry in output:
         print(": ".join(entry))
+    print()
 
 def checkLoadFile(students):
     if students == []:
@@ -30,20 +32,21 @@ def checkLoadFile(students):
         return True
 
 def DataPrompt(grade, teacher, bus):
-    print("Average GPA sorted by:\n    G[rade]\n    T[eacher]\n    B[us]")
+    print("Average GPA sorted by:\n    G[rade]\n    T[eacher]\n    B[us]\n"
+          + "    R[eturn] to main prompt")
     while True:
       user_in = input().split(" ")
       if user_in[0][0] == 'G':
           printInfo(grade)
-          return;
       elif user_in[0][0] == 'T':
           printInfo(teacher)
-          return;
       elif user_in[0][0] == 'B':
           printInfo(bus)
+      elif user_in[0][0] == 'R':
           return;
       else:
-         print("Invalide option")
+         print("Invalid option")
+         print("G[rade] | T[eacher] | B[us] | R[eturn]")
 
 
 def main():
@@ -98,7 +101,7 @@ def main():
                 printOutput(output)
             else:
                 print("Invalid number of arguments")
-                print("Usage:  C[lass]: <number> [S[tudent]] [T[eacher]]\n")
+                print("Usage:  C[lass]: <number> [S[tudent]] [T[eacher]]")
         elif user_in[0][0] == 'A':
             if len(user_in) == 2:
                 output = R10(students, user_in[1])
@@ -115,7 +118,7 @@ def main():
         elif len(user_in) == 1 and user_in[0][0] == 'E':
             output = NR4(students)
             printInfo(output)
-        elif len(user_in) == 1 and user_in[0][0] == '1':
+        elif len(user_in) == 1 and user_in[0][0] == 'D':
             print("Computing Data...")
             grade, teacher, bus = NR5(students)
             d = DataPrompt(grade, teacher, bus)
