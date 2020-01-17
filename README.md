@@ -6,6 +6,8 @@ python3 schoolSearch.py
 
 To run tests, run the command:
 python3 tests.py
+         or
+python3 schoolsearch.py < tests.txt
 
 Usage For New Required Commands:
 	NR1: C[lass] <number> S[tudents]
