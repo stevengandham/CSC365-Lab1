@@ -46,7 +46,7 @@ def DataPrompt(grade, teacher, bus):
           return;
       else:
          print("Invalid option")
-         print("G[rade] | T[eacher] | B[us] | R[eturn]")
+         print("Options: G[rade] | T[eacher] | B[us] | R[eturn]\n")
 
 
 def main():
@@ -64,34 +64,38 @@ def main():
                 printOutput(output)
             else:
                 print("Invalid number of arguments")
-                print("Usage: S[tudent]: <lastname> [B[us]]")
+                print("Usage: S[tudent]: <lastname> [B[us]]\n")
         elif user_in[0][0] == 'T':
             if len(user_in) == 2:
                 output = R6(students, user_in[1])
                 printOutput(output)
             else:
                 print("Invalid number of arguments")
-                print("Usage: T[eacher]: <lastname>")
+                print("Usage: T[eacher]: <lastname>\n")
         elif user_in[0][0] == 'B':
             if len(user_in) == 2:
                 output = R8(students, user_in[1])
                 printOutput(output)
             else:
                 print("Invalid number of arguments")
-                print("Usage: B[us]: <number>")
+                print("Usage: B[us]: <number>\n")
         elif user_in[0][0] == 'G':
             if len(user_in) == 3:
                 if user_in[2][0] == 'T':
                     output = NR3(students, user_in[1])
-                else:
+                    printOutput(output)
+                elif user_in[2][0]=='H' or user_in[2][0]=='L':
                     output = R9(students, " ".join(user_in[1:]))
-                printOutput(output)
+                    printOutput(output)
+                else:
+                    print("Invalid argument")
+                    print("Usage: G[rade]: <number> [H[igh]|L[ow]][T[eacher]]\n")
             elif len(user_in) == 2:
                 output = R7(students, user_in[1])
                 printOutput(output)
             else:
                 print("Invalid number of arguments")
-                print("Usage: G[rade]: <number> [H[igh]|L[ow]][T[eacher]]")
+                print("Usage: G[rade]: <number> [H[igh]|L[ow]][T[eacher]]\n")
         elif user_in[0][0] == 'C':
             if len(user_in) == 3:
                 if user_in[2][0] == 'S':
@@ -101,14 +105,14 @@ def main():
                 printOutput(output)
             else:
                 print("Invalid number of arguments")
-                print("Usage:  C[lass]: <number> [S[tudent]] [T[eacher]]")
+                print("Usage:  C[lass]: <number> [S[tudent]] [T[eacher]]\n")
         elif user_in[0][0] == 'A':
             if len(user_in) == 2:
                 output = R10(students, user_in[1])
                 printOutput(output)
             else:
                 print("Invalid number of arguments")
-                print("Usage: A[verage]: <number>")
+                print("Usage: A[verage]: <number>\n")
         elif len(user_in) == 1 and user_in[0][0] == 'I':
             output = R11(students)
             printInfo(output)
@@ -127,7 +131,7 @@ def main():
         elif user_in[0][0] == 'Q':
             not_quit = False
         else:
-            print("Invalid command")
+            print("Invalid command\n")
 
 if __name__ == '__main__':
     main()
